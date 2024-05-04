@@ -8,3 +8,7 @@ def create_variable(form):
     measurement = form.save()
     measurement.save()
     return ()
+
+def get_variable_by_id(id):
+    queryset = Variable.objects.get(id=id)
+    return (queryset)
