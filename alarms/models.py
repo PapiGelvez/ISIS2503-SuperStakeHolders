@@ -5,7 +5,6 @@ from measurements.models import Measurement
 class Alarm(models.Model):
     variable = models.ForeignKey(Variable, on_delete=models.CASCADE, default=None)
     measurement = models.ForeignKey(Measurement, on_delete=models.CASCADE, default=None)
-    value = models.FloatField(null=True, blank=True, default=None)
     limitExceeded = models.FloatField(null=True, blank=True, default=None)
     dateTime = models.DateTimeField(auto_now_add=True)
 
@@ -17,7 +16,6 @@ class Alarm(models.Model):
             'id': self.id,
             'variable': self.variable.name,
             'measurement': self.measurement.value,
-            'value': self.value,
             'dateTime': self.dateTime,
             'limitExceeded': self.limitExceeded
         }

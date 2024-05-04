@@ -13,7 +13,6 @@ def create_alarm(variable, measurement, limitExceeded):
     alarm = Alarm()
     alarm.variable = variable
     alarm.measurement = measurement
-    alarm.value = measurement.value
     alarm.limitExceeded = limitExceeded
     alarm.save()
     return alarm
