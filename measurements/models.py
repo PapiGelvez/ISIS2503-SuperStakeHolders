@@ -5,6 +5,6 @@ class Measurement(models.Model):
     ingresos = models.FloatField(null=True, blank=True, default=None)
     deudas = models.FloatField(null=True, blank=True, default=None)
     creditos = models.FloatField(null=True, blank=True, default=None)
-
+    value = models.FloatField(null=True, blank=True, default=None)
     def __str__(self):
         return '{}'.format(self.trabajo)
