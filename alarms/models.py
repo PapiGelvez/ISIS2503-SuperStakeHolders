@@ -9,13 +9,13 @@ class Alarm(models.Model):
     dateTime = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return '{"variable": %s, "measurement": %s, "limitExceeded": %s, "dateTime": %s}' % (self.variable.name, self.measurement.value, self.limitExceeded, self.dateTime)
+        return '{"variable": %s, "measurement": %s, "limitExceeded": %s, "dateTime": %s}' % (self.variable.name, self.measurement.trabajo, self.limitExceeded, self.dateTime)
     
     def toJson(self):
         alarm = {
             'id': self.id,
             'variable': self.variable.name,
-            'measurement': self.measurement.value,
+            'measurement': self.measurement.trabajo,
             'dateTime': self.dateTime,
             'limitExceeded': self.limitExceeded
         }
