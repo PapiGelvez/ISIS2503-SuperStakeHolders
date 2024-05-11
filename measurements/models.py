@@ -6,10 +6,7 @@ class Measurement(models.Model):
     ingresos = models.CharField(max_length=200, default='')
     deudas = models.CharField(max_length=200, default='')
     creditos = models.CharField(max_length=200, default='')
-    def __str__(self):
-        return '{}'.format(self.trabajo)
-
-
+    
     def cifrar_valor(self, valor):
         return generate_password_hash(str(valor))
 
@@ -17,7 +14,7 @@ class Measurement(models.Model):
         return check_password_hash(valor_hash, str(valor))
 
     def save(self, *args, **kwargs):
-        self.trabajo = self.cifrar_valor(self.trabajo)
+        #self.trabajo = self.cifrar_valor(self.trabajo)
         self.ingresos = self.cifrar_valor(self.ingresos)
         self.deudas = self.cifrar_valor(self.deudas)
         self.creditos = self.cifrar_valor(self.creditos)
