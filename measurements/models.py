@@ -2,7 +2,7 @@ from django.db import models
 from werkzeug.security import generate_password_hash, check_password_hash
 
 class Measurement(models.Model):
-    trabajo = models.CharField(max_length=50, default='')
+    trabajo = models.CharField(max_length=200, default='')
     ingresos = models.CharField(max_length=200, default='')
     deudas = models.CharField(max_length=200, default='')
     creditos = models.CharField(max_length=200, default='')
