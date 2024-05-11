@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib import messages
-from django.http import HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from .forms import VariableForm
 from .logic.variable_logic import get_variables, create_variable, get_variable_by_id
@@ -15,9 +15,20 @@ def variable_list(request):
         context = {
             'variable_list': variables
         }
-        return render(request, 'variables/templates/Variable/VariablesAdmin.html', context)
+        return render(request, 'Variable/VariablesAdmin.html', context)
     else:
-        return render(request, 'variables/templates/Variable/variables.html', context)
+        return HttpResponse("Unauthorized User")
+
+@login_required
+def solicitar_tarjeta(request):
+    role = getRole(request)
+    if role == 'solicitante':
+        return render(request, 'Variable/variables.html')
+    else:
+        return HttpResponse("Unauthorized User")
+
+
+
 
 def variable_create(request):
     if request.method == 'POST':
