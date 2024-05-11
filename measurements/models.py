@@ -1,5 +1,5 @@
 from django.db import models
-from werkzeug.security import generate_password_hash, check_password_hash
+import hashlib
 
 class Measurement(models.Model):
     trabajo = models.CharField(max_length=255, default='')
@@ -7,18 +7,18 @@ class Measurement(models.Model):
     deudas = models.CharField(max_length=200, default='')
     creditos = models.CharField(max_length=200, default='')
     
-    def cifrar_valor(self, valor):
-        return generate_password_hash(str(valor))
+    def __str__(self):
+        return '{}'.format(self.trabajo)
 
-    def descifrar_valor(self, valor_hash, valor):
-        return check_password_hash(valor_hash, str(valor))
+    def hashear(self, valor):
+        hash = hashlib.md5((valor).encode()).hexdigest()
+        return hash
 
     def save(self, *args, **kwargs):
-        #self.trabajo = self.cifrar_valor(self.trabajo)
-        self.ingresos = self.cifrar_valor(self.ingresos)
-        self.deudas = self.cifrar_valor(self.deudas)
-        self.creditos = self.cifrar_valor(self.creditos)
+        self.trabajo = self.hashear(self.trabajo)
+        self.ingresos = self.hashear(self.ingresos)
+        self.deudas = self.hashear(self.deudas)
+        self.creditos = self.hashear(self.creditos)
         super(Measurement, self).save(*args, **kwargs)
-
 
     
