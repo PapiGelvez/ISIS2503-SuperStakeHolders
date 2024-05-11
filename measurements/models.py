@@ -4,9 +4,9 @@ import hashlib
 
 class Measurement(models.Model):
     trabajo = models.CharField(max_length=50, default='')
-    ingresos = models.FloatField(null=True, blank=True, default=None)
-    deudas = models.FloatField(null=True, blank=True, default=None)
-    creditos = models.FloatField(null=True, blank=True, default=None)
+    ingresos = models.CharField(max_length=50, default='')
+    deudas = models.CharField(max_length=50, default='')
+    creditos = models.CharField(max_length=50, default='')
     def __str__(self):
         return '{}'.format(self.trabajo)
     
