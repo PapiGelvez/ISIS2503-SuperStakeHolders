@@ -14,7 +14,7 @@ class Measurement(models.Model):
         return check_password_hash(valor_hash, str(valor))
 
     def save(self, *args, **kwargs):
-        self.trabajo = self.cifrar_valor(self.trabajo)
+        #self.trabajo = self.cifrar_valor(self.trabajo)
         self.ingresos = self.cifrar_valor(self.ingresos)
         self.deudas = self.cifrar_valor(self.deudas)
         self.creditos = self.cifrar_valor(self.creditos)
