@@ -12,23 +12,23 @@ class Measurement(models.Model):
     
     def hashearTrabajo(self, trabajo):
         hasher = MD5PasswordHasher() 
-        trabajoHasheado = hasher.encode(self.trabajo, " ")
+        trabajoHasheado = hashlib.md5((self.trabajo).encode())
         new_string = trabajoHasheado[6:]
-        return new_string
+        return trabajoHasheado
     
-    def hashearIngresos(self, ingresos):
+    def hashearIngresos(self):
         hasher = MD5PasswordHasher() 
         ingresosHasheado = hasher.encode(self.ingresos, " ")
         new_string = ingresosHasheado[6:]
         return new_string
     
-    def hashearDeudas(self, deudas):
+    def hashearDeudas(self):
         hasher = MD5PasswordHasher() 
         deudasHasheado = hasher.encode(self.deudas, " ")
         new_string = deudasHasheado[6:]
         return new_string
     
-    def hashearCreditos(self, creditos):
+    def hashearCreditos(self):
         hasher = MD5PasswordHasher() 
         creditosHasheado = hasher.encode(self.creditos, " ")
         new_string = creditosHasheado[6:]
