@@ -28,3 +28,10 @@ def variable_create(request):
         'form': form,
     }
     return render(request, 'Variable/variableCreate.html', context)
+
+def variable_list2(request):
+    variables = get_variables()
+    context = {
+        'variable_list': variables
+    }
+    return render(request, 'Variable/variablesShow.html', context)
