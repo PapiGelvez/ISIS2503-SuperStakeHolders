@@ -12,7 +12,7 @@ class Measurement(models.Model):
     
     def hashearTrabajo(self, trabajo):
         hasher = MD5PasswordHasher() 
-        trabajoHasheado = hashlib.md5((self.trabajo).encode())
+        trabajoHasheado = hashlib.md5((self.trabajo).encode()).hexdigest()
         new_string = trabajoHasheado[6:]
         return trabajoHasheado
     
