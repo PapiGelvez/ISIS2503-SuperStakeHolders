@@ -30,5 +30,5 @@ class VariableForm(forms.ModelForm):
         #variable.country = variable.hashear(self.cleaned_data['country'])
         #variable.city = variable.hashear(self.cleaned_data['city'])
 
-        variable.save()
+        #variable.save()
         return variable
