@@ -3,14 +3,21 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .forms import VariableForm
-from .logic.variable_logic import get_variables, create_variable
+from .logic.variable_logic import get_variables, create_variable, get_variable_by_id
+from django.contrib.auth.decorators import login_required
+from monitoring.auth0backend import getRole
 
+@login_required
 def variable_list(request):
-    variables = get_variables()
-    context = {
-        'variable_list': variables
-    }
-    return render(request, 'Variable/variables.html', context)
+    role = getRole(request)
+    if role == 'admin':
+        variables = get_variables()
+        context = {
+            'variable_list': variables
+        }
+        return render(request, 'Variable/variablesAdmin.html', context)
+    else:
+        return render(request, 'Variable/variables.html', context)
 
 def variable_create(request):
     if request.method == 'POST':

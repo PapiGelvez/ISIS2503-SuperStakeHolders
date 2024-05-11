@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'measurements',
     'variables',
     'alarms',
+    'social_django'
 ]
 
 MIDDLEWARE = [
@@ -134,3 +135,20 @@ MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'static', 'media')
 STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
+
+LOGIN_URL = "/login/auth0"
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "https://dev-wy0oe7x25n3t6vkc.us.auth0.com/v2/logout?returnTo=http%3A%2F%2Fip_publica_instancia:8080"
+SOCIAL_AUTH_TRAILING_SLASH = False # Remove end slash from routes
+SOCIAL_AUTH_AUTH0_DOMAIN = 'dev-wy0oe7x25n3t6vkc.us.auth0.com'
+SOCIAL_AUTH_AUTH0_KEY = 'Xj8ZgxjkONuSGpM81zx1AuHYobxXP8zY'
+SOCIAL_AUTH_AUTH0_SECRET = '064Oi1GFo4dGROTyWv_x5RWukwu2egw4wi4d2SwhSlFLccLn7Xco3LYoUD5a5Eof'
+SOCIAL_AUTH_AUTH0_SCOPE = [
+
+    'openid',
+    'profile',
+    'email',
+    'role',
+]
+
+AUTHENTICATION_BACKENDS = { 'monitoring.auth0backend.Auth0', 'django.contrib.auth.backends.ModelBackend', }
