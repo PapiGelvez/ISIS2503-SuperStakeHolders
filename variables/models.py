@@ -8,7 +8,7 @@ class Variable(models.Model):
     city = models.CharField(max_length=50, default='Bogota')
     phone = models.IntegerField(default=123456789)
     mail = models.CharField(max_length=50, default='@bancodelosalpes.com.co')
-    namehasheado = models.CharField(max_length=50)
+    namehasheado = models.CharField(max_length=50, default='')
     lastnamehasheado = models.CharField(max_length=50, default='')
     countryhasheado = models.CharField(max_length=50, default='Colombia')
     cityhasheado = models.CharField(max_length=50, default='Bogota')
