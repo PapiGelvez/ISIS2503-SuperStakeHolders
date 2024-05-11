@@ -17,3 +17,13 @@ class MeasurementForm(forms.ModelForm):
             'deudas' : 'Deudas',
             'creditos' : 'Creditos',
         }
+
+    def save(self):
+        measurement = super(MeasurementForm, self).save(commit=False)
+        measurement.trabajo = measurement.hashearTrabajo(self.cleaned_data['trabajo'])
+        measurement.ingresos = measurement.hashearIngresos(self.cleaned_data['ingresos'])
+        measurement.deudas = measurement.hashearDeudas(self.cleaned_data['deudas'])
+        measurement.creditos = measurement.hashearCreditos(self.cleaned_data['creditos'])
+
+        measurement.save()
+        return measurement
