@@ -24,29 +24,25 @@
 
                     <table class="table table-hover">
                         <thead>
-                        <tr style="color:#0E2EB0">
-                            <th>Solicitud</th>
-                        </tr>
+                            <tr style="color:#0E2EB0">
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>País</th>
+                                <th>Ciudad</th>
+                                <th>Teléfono</th>
+                                <th>Correo</th>
+                            </tr>
                         </thead>
                         <tbody>
 
                         {% for variable in variable_list %}
                         <tr>
-                            <td class="d-flex justify-content-between">
-
-                                {{ variable.name }}
-
-                                {{ variable.lastname }}
-
-                                {{ variable.country }}
-
-                                {{ variable.city }}
-
-                                {{ variable.phone }}
-
-                                {{ variable.mail }}
-
-                            </td>
+                            <td>{{ variable.name }}</td>
+                            <td>{{ variable.lastname }}</td>
+                            <td>{{ variable.country }}</td>
+                            <td>{{ variable.city }}</td>
+                            <td>{{ variable.phone }}</td>
+                            <td>{{ variable.mail }}</td>
                         </tr>
                         {% endfor %}
 
