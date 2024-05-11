@@ -17,8 +17,8 @@ class Variable(models.Model):
         return hash
     
     def save(self, *args, **kwargs):
-        self.name = self.cifrar_valor(self.name)
-        self.lastname = self.cifrar_valor(self.lastname)
-        self.country = self.cifrar_valor(self.country)
-        self.city = self.cifrar_valor(self.city)
+        self.name = self.hashear(self.name)
+        self.lastname = self.hashear(self.lastname)
+        self.country = self.hashear(self.country)
+        self.city = self.hashear(self.city)
         super(Variable, self).save(*args, **kwargs)
