@@ -19,3 +19,6 @@ class Measurement(models.Model):
         self.deudas = self.cifrar_valor(self.deudas)
         self.creditos = self.cifrar_valor(self.creditos)
         super(Measurement, self).save(*args, **kwargs)
+
+
+    
