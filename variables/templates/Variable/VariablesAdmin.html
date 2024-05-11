@@ -34,10 +34,21 @@
                         <tr>
                             <td class="d-flex justify-content-between">
                                 {{ variable.name }}
-                                <button type="button" class="btn btn-primary waves-effect waves-light"
-                                        onClick=" window.location.href='/variable/{{ variable.id }}' ">
-                                    Detalle
-                                </button>
+                            </td>
+                            <td class="d-flex justify-content-between">
+                                {{ variable.lastname }}
+                            </td>
+                            <td class="d-flex justify-content-between">
+                                {{ variable.country }}
+                            </td>
+                            <td class="d-flex justify-content-between">
+                                {{ variable.city }}
+                            </td>
+                            <td class="d-flex justify-content-between">
+                                {{ variable.phone }}
+                            </td>
+                            <td class="d-flex justify-content-between">
+                                {{ variable.mail }}
                             </td>
                         </tr>
                         {% endfor %}
