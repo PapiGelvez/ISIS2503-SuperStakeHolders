@@ -20,5 +20,3 @@ class Measurement(models.Model):
         self.deudas = self.hashear(self.deudas)
         self.creditos = self.hashear(self.creditos)
         super(Measurement, self).save(*args, **kwargs)
-
-    
