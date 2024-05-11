@@ -19,13 +19,9 @@ def variable_list(request):
     else:
         return HttpResponse("Unauthorized User")
 
-@login_required
 def solicitar_tarjeta(request):
-    role = getRole(request)
-    if role == 'solicitante':
-        return render(request, 'Variable/variables.html')
-    else:
-        return HttpResponse("Unauthorized User")
+    return render(request, 'Variable/variables.html')
+
 
 
 
