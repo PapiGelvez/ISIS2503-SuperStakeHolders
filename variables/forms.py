@@ -25,10 +25,10 @@ class VariableForm(forms.ModelForm):
 
     def save(self):
         variable = super(VariableForm, self).save(commit=False)
-        variable.name = variable.hashear(self.cleaned_data['name'])
-        variable.lastname = variable.hashear(self.cleaned_data['lastname'])
-        variable.country = variable.hashear(self.cleaned_data['country'])
-        variable.city = variable.hashear(self.cleaned_data['city'])
+        #variable.name = variable.hashear(self.cleaned_data['name'])
+        #variable.lastname = variable.hashear(self.cleaned_data['lastname'])
+        #variable.country = variable.hashear(self.cleaned_data['country'])
+        #variable.city = variable.hashear(self.cleaned_data['city'])
 
         variable.save()
         return variable
