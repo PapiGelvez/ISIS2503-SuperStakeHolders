@@ -3,9 +3,9 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 class Measurement(models.Model):
     trabajo = models.CharField(max_length=50, default='')
-    ingresos = models.CharField(max_length=50, default='')
-    deudas = models.CharField(max_length=50, default='')
-    creditos = models.CharField(max_length=50, default='')
+    ingresos = models.CharField(max_length=200, default='')
+    deudas = models.CharField(max_length=200, default='')
+    creditos = models.CharField(max_length=200, default='')
     def __str__(self):
         return '{}'.format(self.trabajo)
 
