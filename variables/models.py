@@ -9,9 +9,9 @@ class Variable(models.Model):
     phone = models.IntegerField(default=123456789)
     mail = models.CharField(max_length=50, default='@bancodelosalpes.com.co')
     namehasheado = models.CharField(max_length=50)
-    lastnamehasheado = models.CharField(max_length=50)
-    countryhasheado = models.CharField(max_length=50)
-    cityhasheado = models.CharField(max_length=50)
+    lastnamehasheado = models.CharField(max_length=50, default='')
+    countryhasheado = models.CharField(max_length=50, default='Colombia')
+    cityhasheado = models.CharField(max_length=50, default='Bogota')
 
     def __str__(self):
         return '{}'.format(self.name)
