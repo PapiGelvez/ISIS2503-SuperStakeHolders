@@ -20,15 +20,10 @@ class MeasurementForm(forms.ModelForm):
 
 def save(self, commit=True):
         measurement = super(MeasurementForm, self).save(commit=False)
-        
         #measurement.trabajo = measurement.cifrar_valor(self.cleaned_data['trabajo'])
-       # arreglo_ingresos.append(measurement.ingresos)
         #measurement.ingresos = measurement.cifrar_valor(self.cleaned_data['ingresos'])
-        #arreglo_deudas.append(measurement.deudas)
-       # measurement.deudas = measurement.cifrar_valor(self.cleaned_data['deudas'])
-        #arreglo_creditos.append(measurement.creditos)
+        # measurement.deudas = measurement.cifrar_valor(self.cleaned_data['deudas'])
         #measurement.creditos = measurement.cifrar_valor(self.cleaned_data['creditos'])
-       # if commit:
         #measurement.save()
         return measurement
     
