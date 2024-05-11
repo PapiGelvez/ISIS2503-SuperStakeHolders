@@ -33,22 +33,24 @@
                         {% for variable in variable_list %}
                         <tr>
                             <td class="d-flex justify-content-between">
+                             <span>
                                 {{ variable.name }}
-                            </td>
-                            <td class="d-flex justify-content-between">
+                            </span>
+                            <span>
                                 {{ variable.lastname }}
-                            </td>
-                            <td class="d-flex justify-content-between">
+                            </span>
+                            <span>
                                 {{ variable.country }}
-                            </td>
-                            <td class="d-flex justify-content-between">
+                            </span>
+                            <span>
                                 {{ variable.city }}
-                            </td>
-                            <td class="d-flex justify-content-between">
+                            </span>
+                            <span>
                                 {{ variable.phone }}
-                            </td>
-                            <td class="d-flex justify-content-between">
+                            </span>
+                            <span>
                                 {{ variable.mail }}
+                            </span>
                             </td>
                         </tr>
                         {% endfor %}
