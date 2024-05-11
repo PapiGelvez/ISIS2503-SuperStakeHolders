@@ -1,4 +1,5 @@
 from django.db import models
+import hashlib
 
 class Variable(models.Model):
     name = models.CharField(max_length=50)
@@ -11,3 +12,13 @@ class Variable(models.Model):
     def __str__(self):
         return '{}'.format(self.name)
 
+    def hashear(self, valor):
+        hash = hashlib.md5((valor).encode()).hexdigest()
+        return hash
+    
+    def save(self, *args, **kwargs):
+        self.name = self.cifrar_valor(self.name)
+        self.lastname = self.cifrar_valor(self.lastname)
+        self.country = self.cifrar_valor(self.country)
+        self.city = self.cifrar_valor(self.city)
+        super(Variable, self).save(*args, **kwargs)
