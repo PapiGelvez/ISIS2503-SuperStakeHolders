@@ -15,9 +15,9 @@ def variable_list(request):
         context = {
             'variable_list': variables
         }
-        return render(request, 'Variable/variablesAdmin.html', context)
+        return render(request, 'templates/Variable/variablesAdmin.html', context)
     else:
-        return render(request, 'Variable/variables.html', context)
+        return render(request, 'templates/Variable/variables.html', context)
 
 def variable_create(request):
     if request.method == 'POST':
